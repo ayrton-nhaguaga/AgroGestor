@@ -15,6 +15,7 @@ public class Product {
     private String id;
     private String name;
     private ProductType productType;
+    private double price;
     private String description;
     private String unit; // "kg", "litro", "saco", etc
 

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Document(collection = "sales")
 @Data
@@ -25,7 +25,7 @@ public class Sale {
     private double pricePerUnit;
     private double totalPrice;
 
-    private LocalDate date;
+    private LocalDateTime saleDate;
 
     private SaleStatus status;
 }

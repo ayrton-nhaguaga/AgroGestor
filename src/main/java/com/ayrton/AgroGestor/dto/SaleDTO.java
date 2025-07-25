@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 public class SaleDTO {
@@ -27,7 +27,7 @@ public class SaleDTO {
     private double totalPrice;
 
     @NotNull
-    private LocalDate date;
+    LocalDateTime saleDate;
 
     @NotNull
     private SaleStatus status;

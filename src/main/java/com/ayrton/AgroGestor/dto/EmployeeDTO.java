@@ -23,7 +23,7 @@ public class EmployeeDTO {
     @Size(min = 0, max = 50)
     private String phone;
 
-    private double rating;
+
     private List<EmployeeSchedule> schedules = new ArrayList<>();
     private List<EmployeeSpeciality> speciality = new ArrayList<>();
 }

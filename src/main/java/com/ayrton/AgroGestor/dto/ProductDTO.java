@@ -16,6 +16,9 @@ public class ProductDTO {
     private ProductType productType;
 
     @NotNull
+    private double price;
+
+    @NotNull
     @Size(min = 0, max = 500)
     private String description;
 
