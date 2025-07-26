@@ -64,7 +64,7 @@ public class ProductService {
 
 
 
-    public boolean deleteProductByName(String id){
+    public boolean deleteProductById(String id){
        return productRepository.findById(id)
                .map(product -> {
                    productRepository.delete(product);

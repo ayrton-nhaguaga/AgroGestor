@@ -18,7 +18,7 @@ public interface FieldRepository extends MongoRepository<Field, String> {
 
     List<Field> findByNameIgnoreCase(String name);
 
-    Optional<Field> findByFarmId(String farmId);
+    List<Field> findByFarmId(String farmId);
 
     List<Field> findByArea(double area);
 
