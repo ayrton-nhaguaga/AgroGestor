@@ -14,6 +14,8 @@ public class StockDTO {
     @NotNull
     private String productId;
 
+
+
     @NotNull
     private double quantity;
 

@@ -27,4 +27,7 @@ public class CropDTO {
 
     @NotNull
     private double costPerHectare;
+
+    @NotNull
+    private String productId;
 }

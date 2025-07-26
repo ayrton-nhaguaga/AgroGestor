@@ -25,5 +25,7 @@ public class Crop {
     private LocalDate harvestDate;
     private double expectedYield;
     private double costPerHectare;
+
+    private String productId;
 }
 

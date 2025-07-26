@@ -24,6 +24,7 @@ public class CropService {
         crop.setHarvestDate(dto.getHarvestDate());
         crop.setExpectedYield(dto.getExpectedYield());
         crop.setCostPerHectare(dto.getCostPerHectare());
+        crop.setProductId(dto.getProductId());
         return cropRepository.save(crop);
     }
 
@@ -56,6 +57,7 @@ public class CropService {
                     crop.setHarvestDate(dto.getHarvestDate());
                     crop.setExpectedYield(dto.getExpectedYield());
                     crop.setCostPerHectare(dto.getCostPerHectare());
+                    crop.setProductId(dto.getProductId());
                     return cropRepository.save(crop);
                 });
     }

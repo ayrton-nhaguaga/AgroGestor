@@ -16,9 +16,13 @@ public interface StockRepository extends MongoRepository<Stock, String> {
     @Override
     List<Stock> findAll();
 
-    List<Stock> findByProductId(String productId);
+    Optional<Stock> findByProductId(String productId);
+
+    Optional<Stock> findByProductIdAndFarmId(String productId, String farmId);;
 
     List<Stock> findByQuantityLessThan(int quantity);
 
-    List<Stock> findByProductPriceBetween(double min, double max);
+
+    List<Stock> findByProductIdIn(List<String> productIds);
+
 }
