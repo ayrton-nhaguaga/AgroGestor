@@ -22,7 +22,5 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
     List<Employee> findByEmailIgnoreCase(String email);
 
 
-    List<Employee> findByPhoneIgnoreCase(String phone);
-
     List<Employee> findBySpeciality(EmployeeSpeciality speciality);
 }

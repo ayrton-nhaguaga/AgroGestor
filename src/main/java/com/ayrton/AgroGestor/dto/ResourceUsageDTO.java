@@ -14,8 +14,6 @@ public class ResourceUsageDTO {
     @NotNull
     private String resourceId;
 
-    @NotNull
-    private String bookingId;
 
     @NotNull
     private LocalDateTime startTime;

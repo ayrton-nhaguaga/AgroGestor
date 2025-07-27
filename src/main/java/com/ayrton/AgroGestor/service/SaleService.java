@@ -3,9 +3,11 @@ package com.ayrton.AgroGestor.service;
 import com.ayrton.AgroGestor.dto.SaleDTO;
 import com.ayrton.AgroGestor.enums.SaleStatus;
 import com.ayrton.AgroGestor.model.Crop;
+import com.ayrton.AgroGestor.model.Promotion;
 import com.ayrton.AgroGestor.model.Sale;
 import com.ayrton.AgroGestor.model.Stock;
 import com.ayrton.AgroGestor.repository.CropRepository;
+import com.ayrton.AgroGestor.repository.PromotionRepository;
 import com.ayrton.AgroGestor.repository.SaleRepository;
 import com.ayrton.AgroGestor.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class SaleService {
 
     @Autowired
     private CropRepository cropRepository;
+
+    @Autowired
+    private PromotionRepository promotionRepository;
 
     public Sale createSale(SaleDTO dto) {
         // 1. Validar quantidade da venda
@@ -58,19 +63,53 @@ public class SaleService {
         stock.setQuantity(stock.getQuantity() - dto.getAmount());
         stockRepository.save(stock);
 
-        // 7. Criar o objeto Sale com dados do DTO e calculando o total
+        // 7. Calcular o preço por unidade (com promoção, se aplicável)
+        double finalUnitPrice = dto.getPricePerUnit();
+
+        if (dto.getPromotionCode() != null && !dto.getPromotionCode().isBlank()) {
+            finalUnitPrice = applyPromotionToPrice(dto.getPricePerUnit(), dto.getPromotionCode());
+        }
+
+        // 8. Criar o objeto Sale com dados do DTO e calculando o total com promoção (se houver)
         Sale sale = new Sale();
         sale.setCropId(dto.getCropId());
         sale.setBuyerName(dto.getBuyerName());
         sale.setAmount(dto.getAmount());
-        sale.setPricePerUnit(dto.getPricePerUnit());
-        sale.setTotalPrice(dto.getAmount() * dto.getPricePerUnit());
+        sale.setPricePerUnit(finalUnitPrice);
+        sale.setTotalPrice(dto.getAmount() * finalUnitPrice);
         sale.setSaleDate(LocalDateTime.now());
         sale.setStatus(SaleStatus.PENDENTE);
 
-        // 8. Salvar e retornar a venda
+        // 9. Salvar e retornar a venda
         return saleRepository.save(sale);
     }
+
+
+    public double applyPromotionToPrice(double price, String promotionCode) {
+        List<Promotion> promotions = promotionRepository.findByCodeIgnoreCase(promotionCode);
+
+        for (Promotion promotion : promotions) {
+            if (promotion.isActive() && isValidNow(promotion)) {
+                double discount = price * (promotion.getDiscountPercent() / 100.0);
+
+                // Opcional: se quiser apenas "usar" uma vez
+                promotion.setActive(false);
+                promotionRepository.save(promotion);
+
+                return price - discount;
+            }
+        }
+
+        // Nenhuma promoção válida encontrada
+        return price;
+    }
+
+    private boolean isValidNow(Promotion promotion) {
+        LocalDateTime now = LocalDateTime.now();
+        return (promotion.getValidFrom().isBefore(now) || promotion.getValidFrom().isEqual(now)) &&
+                (promotion.getValidTo().isAfter(now) || promotion.getValidTo().isEqual(now));
+    }
+
 
     public List<Sale> getAllSales(){
         return saleRepository.findAll();

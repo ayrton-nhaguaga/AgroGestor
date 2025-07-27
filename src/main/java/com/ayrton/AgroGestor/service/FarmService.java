@@ -44,10 +44,6 @@ public class FarmService {
         return farmRepository.findBySizeHectares(sizeHectares);
     }
 
-    public List<Farm> getByOwnerId(String ownerId){
-        return farmRepository.findByOwnerId(ownerId);
-    }
-
     public Optional<Farm> updateFarm(String id, FarmDTO dto){
         return farmRepository.findById(id)
                 .map(farm -> {

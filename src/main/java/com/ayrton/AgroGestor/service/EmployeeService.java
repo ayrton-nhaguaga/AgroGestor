@@ -43,9 +43,6 @@ public class EmployeeService {
         return employeeRepository.findByEmailIgnoreCase(email);
     }
 
-    public List<Employee> getByPhoneIgnoreCase(String phone){
-        return employeeRepository.findByPhoneIgnoreCase(phone);
-    }
 
     public List<Employee> getBySpeciality(EmployeeSpeciality speciality){
         return employeeRepository.findBySpeciality(speciality);

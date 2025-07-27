@@ -13,7 +13,6 @@ public class ResourceUsage {
     @Id
     private String id;
     private String resourceId;
-    private String bookingId;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 }

@@ -22,5 +22,5 @@ public interface FarmRepository extends MongoRepository<Farm, String> {
 
     List<Farm> findBySizeHectares(double sizeHectares);
 
-    List<Farm> findByOwnerId(String ownerId);
+    //List<Farm> findByOwnerId(String ownerId);
 }

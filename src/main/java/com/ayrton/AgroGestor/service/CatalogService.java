@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 public class CatalogService {
@@ -41,7 +41,7 @@ public class CatalogService {
     }
 
 
-    public Optional<Catalog> updateCatalogByName(String id, CatalogDTO dto){
+    public Optional<Catalog> updateCatalogById(String id, CatalogDTO dto){
         return catalogRepository.findById(id)
                 .map(catalog -> {
                     catalog.setName(dto.getName());

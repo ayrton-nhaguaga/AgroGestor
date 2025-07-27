@@ -27,6 +27,9 @@ public class SaleDTO {
     private double totalPrice;
 
     @NotNull
+    private String promotionCode;
+
+    @NotNull
     LocalDateTime saleDate;
 
     @NotNull
