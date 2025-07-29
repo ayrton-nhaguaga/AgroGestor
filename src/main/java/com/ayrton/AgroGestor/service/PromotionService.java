@@ -48,10 +48,6 @@ public class PromotionService {
         return promotionRepository.findByCodeIgnoreCase(code);
     }
 
-    public List<Promotion> getByValidFrom(LocalDateTime validFrom){
-        return promotionRepository.findByValidFrom(validFrom);
-    }
-
     public List<Promotion> getByValidTo(LocalDateTime validTo){
         return promotionRepository.findByValidTo(validTo);
     }

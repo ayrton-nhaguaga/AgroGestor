@@ -13,7 +13,7 @@ public class Feedback {
     @Id
     private String id;
     private String userId;
-    private String bookingId;
+    private String saleId;
     private int rating; // de 1 a 5
     private String comment;
     private LocalDateTime createdAt = LocalDateTime.now();

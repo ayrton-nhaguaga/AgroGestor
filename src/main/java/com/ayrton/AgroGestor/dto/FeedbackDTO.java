@@ -12,7 +12,7 @@ public class FeedbackDTO {
     private String userId;
 
     @NotNull
-    private String bookingId;
+    private String saleId;
 
     @NotNull
     private int rating; // de 1 a 5

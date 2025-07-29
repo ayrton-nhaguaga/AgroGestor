@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 public class ProductService {
@@ -44,10 +44,6 @@ public class ProductService {
 
     public List<Product> getByProductType(ProductType productType){
         return productRepository.findByProductType(productType);
-    }
-
-    public List<Product> getByUnit(String unit){
-        return productRepository.findByUnitIgnoreCase(unit);
     }
 
 

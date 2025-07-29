@@ -27,7 +27,7 @@ public class InputApplicationService {
         return inputApplicationRepository.save(inputApplication);
     }
 
-    public List<InputApplication> findAllInputApplications(){
+    public List<InputApplication> getAllInputApplications(){
         return inputApplicationRepository.findAll();
     }
 

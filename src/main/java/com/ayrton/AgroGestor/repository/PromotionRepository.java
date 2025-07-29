@@ -23,7 +23,6 @@ public interface PromotionRepository extends MongoRepository<Promotion, String> 
 
     List<Promotion> findByCodeIgnoreCase(String code);
 
-    List<Promotion> findByValidFrom(LocalDateTime validFrom);
 
     List<Promotion> findByValidTo(LocalDateTime validTo);
 

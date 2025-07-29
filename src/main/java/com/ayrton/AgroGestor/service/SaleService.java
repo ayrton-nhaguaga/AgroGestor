@@ -34,6 +34,8 @@ public class SaleService {
     @Autowired
     private PromotionRepository promotionRepository;
 
+    @Autowired PromotionService promotionService;
+
     public Sale createSale(SaleDTO dto) {
         // 1. Validar quantidade da venda
         if (dto.getAmount() <= 0) {

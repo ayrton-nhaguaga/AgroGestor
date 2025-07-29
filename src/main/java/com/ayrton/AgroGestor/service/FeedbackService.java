@@ -18,7 +18,7 @@ public class FeedbackService {
     public Feedback createFeedback(FeedbackDTO dto){
         Feedback feedback = new Feedback();
         feedback.setUserId(dto.getUserId());
-        feedback.setBookingId(dto.getBookingId());
+        feedback.setSaleId(dto.getSaleId());
         feedback.setRating(dto.getRating());
         feedback.setComment(dto.getComment());
         feedback.setCreatedAt(dto.getCreatedAt());
@@ -42,6 +42,9 @@ public class FeedbackService {
         return feedbackRepository.findByRating(rating);
     }
 
+    public List<Feedback> getBySaleId(String saleId){
+        return feedbackRepository.findBySaleId(saleId);
+    }
 
     public boolean deleteFeedback(String id) {
        return feedbackRepository.findById(id)
