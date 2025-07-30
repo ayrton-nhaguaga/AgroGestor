@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class SaleDTO {
 
     @NotNull
-    private String cropId;
+    private String productId;
 
     @NotNull
     @Size(min = 0, max = 50)

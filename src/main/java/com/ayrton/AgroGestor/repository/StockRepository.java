@@ -25,4 +25,6 @@ public interface StockRepository extends MongoRepository<Stock, String> {
 
     List<Stock> findByProductIdIn(List<String> productIds);
 
+
+
 }

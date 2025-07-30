@@ -1,6 +1,5 @@
 package com.ayrton.AgroGestor.model;
 
-import com.ayrton.AgroGestor.enums.SaleStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,24 +8,23 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Document(collection = "sales")
+@Document(collection = "carts")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Sale {
+public class Cart {
+
     @Id
     private String id;
 
-    private String productId;
-    private String buyerName;
-    private double amount;
-    private double pricePerUnit;
-    private double totalPrice;
+    private String userId; // ID do produtor
 
-    private LocalDateTime saleDate;
+    private List<CartItem> items;
 
-    private SaleStatus status;
+    private LocalDateTime createdAt;
+
+    private boolean checkedOut; // true quando o carrinho vira vendas
 }
-

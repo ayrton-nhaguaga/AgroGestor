@@ -19,9 +19,9 @@ public interface SaleRepository extends MongoRepository<Sale, String> {
 
     List<Sale> findBySaleDateDateBetween(LocalDateTime start, LocalDateTime end);
 
-    List<Sale> findByCropId(String cropId);
+    List<Sale> findByProductId(String productId);
 
     List<Sale> findByBuyerName(String buyerName);
 
-    List<Sale> findByTotalPrice(double totalPrice);
+
 }
