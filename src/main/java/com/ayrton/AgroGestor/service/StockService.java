@@ -70,6 +70,15 @@ public class StockService {
         return stockRepository.findByProductIdIn(productIds);
     }
 
+    public Optional<Stock> updateStockQuantity(String stockId, int newQuantity) {
+        return stockRepository.findById(stockId)
+                .map(stock -> {
+                    stock.setQuantity(newQuantity);
+                    return stockRepository.save(stock);
+                });
+    }
+
+
     public boolean deleteStock(String id){
         return stockRepository.findById(id)
                 .map(stock -> {

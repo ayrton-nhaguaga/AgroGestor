@@ -37,13 +37,13 @@ public class CatalogController {
         return new ResponseEntity<>(catalog, HttpStatus.OK);
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/name")
     public ResponseEntity<List<Catalog>> getByName(@Valid @RequestParam String name){
         List<Catalog> catalogs = catalogService.getByNameIgnoreCase(name);
         return new ResponseEntity<>(catalogs, HttpStatus.OK);
     }
 
-    @GetMapping("/price/{price}")
+    @GetMapping("/price")
     public ResponseEntity<List<Catalog>> getByPrice(@Valid @RequestParam double price){
         List<Catalog> catalogs = catalogService.getByPrice(price);
         return new ResponseEntity<>(catalogs, HttpStatus.OK);

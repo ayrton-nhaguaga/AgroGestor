@@ -39,19 +39,19 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/name")
     public ResponseEntity<List<Product>> getByNameIgnoreCase(@Valid @RequestParam String name){
         List<Product> products = productService.getByNameIgnoreCase(name);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    @GetMapping("/price/{price}")
+    @GetMapping("/price")
     public ResponseEntity<List<Product>> getByPrice(@Valid @RequestParam double price){
         List<Product> products = productService.getByPrice(price);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    @GetMapping("/product-type/productType")
+    @GetMapping("/product-type")
     public ResponseEntity<List<Product>> getByProductType(@RequestParam ProductType productType){
         List<Product> products = productService.getByProductType(productType);
         return new ResponseEntity<>(products, HttpStatus.OK);

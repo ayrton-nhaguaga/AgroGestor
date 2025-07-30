@@ -38,31 +38,31 @@ public class PromotionController {
         return new ResponseEntity<>(promotion, HttpStatus.OK);
     }
 
-    @GetMapping("/title/{title}")
+    @GetMapping("/title")
     public ResponseEntity<List<Promotion>> getByTitleIgnoreCase(@Valid @RequestParam String title){
         List<Promotion> promotions = promotionService.getByTitleIgnoreCase(title);
         return new ResponseEntity<>(promotions, HttpStatus.OK);
     }
 
-    @GetMapping("/discount_percent/{discountPercent}")
+    @GetMapping("/discount_percent")
     public ResponseEntity<List<Promotion>> getByDiscountPercent(@Valid @RequestParam double discountPercent){
         List<Promotion> promotions = promotionService.getByDiscountPercent(discountPercent);
         return new ResponseEntity<>(promotions, HttpStatus.OK);
     }
 
-    @GetMapping("/code/{code}")
+    @GetMapping("/code")
     public ResponseEntity<List<Promotion>> getByCodeIgnoreCase(@Valid @RequestParam String code){
         List<Promotion> promotions = promotionService.getByCodeIgnoreCase(code);
         return new ResponseEntity<>(promotions, HttpStatus.OK);
     }
 
-    @GetMapping("/valid_to/{validTo}")
+    @GetMapping("/valid_to")
     public ResponseEntity<List<Promotion>> getByValidTo(@RequestParam LocalDateTime validTo){
         List<Promotion> promotions = promotionService.getByValidTo(validTo);
         return new ResponseEntity<>(promotions, HttpStatus.OK);
     }
 
-    @GetMapping("active/{active}")
+    @GetMapping("active")
     public ResponseEntity<List<Promotion>> getByActive(@RequestParam boolean active){
         List<Promotion> promotions = promotionService.getByActive(active);
         return new ResponseEntity<>(promotions, HttpStatus.OK);

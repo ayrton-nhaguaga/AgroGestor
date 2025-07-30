@@ -37,7 +37,7 @@ public class FieldController {
         return new ResponseEntity<>(field, HttpStatus.OK);
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/name")
     public ResponseEntity<List<Field>> getByName(@Valid @RequestParam String name){
         List<Field> fields = fieldService.getByName(name);
         return new ResponseEntity<>(fields, HttpStatus.OK);
@@ -49,7 +49,7 @@ public class FieldController {
         return new ResponseEntity<>(fields, HttpStatus.OK);
     }
 
-    @GetMapping("/area/{area}")
+    @GetMapping("/area")
     public ResponseEntity<List<Field>> getByArea(@Valid @RequestParam double area){
         List<Field> fields = fieldService.getByArea(area);
         return new ResponseEntity<>(fields, HttpStatus.OK);

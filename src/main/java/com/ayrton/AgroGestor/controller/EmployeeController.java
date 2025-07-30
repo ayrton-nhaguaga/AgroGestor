@@ -38,19 +38,19 @@ public class EmployeeController {
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/name")
     public ResponseEntity<List<Employee>> getByNameIgnoreCase(@Valid @RequestParam String name){
         List<Employee> employees = employeeService.getByNameIgnoreCase(name);
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
-    @GetMapping("/email/{email}")
+    @GetMapping("/email")
     public ResponseEntity<List<Employee>> getByEmailIgnoreCase(@Valid @RequestParam String email){
         List<Employee> employees = employeeService.getByEmailIgnoreCase(email);
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
-    @GetMapping("/speciality/{speciality}")
+    @GetMapping("/speciality")
     public ResponseEntity<List<Employee>> getBySpeciality(@RequestParam EmployeeSpeciality speciality){
         List<Employee> employees = employeeService.getBySpeciality(speciality);
         return new ResponseEntity<>(employees, HttpStatus.OK);

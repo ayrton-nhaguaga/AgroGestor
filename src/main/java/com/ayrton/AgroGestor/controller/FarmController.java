@@ -37,19 +37,19 @@ public class FarmController {
         return new ResponseEntity<>(farm, HttpStatus.OK);
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/name")
     public ResponseEntity<List<Farm>> getByName(@Valid @RequestParam String name){
         List<Farm> farms = farmService.getByName(name);
         return new ResponseEntity<>(farms, HttpStatus.OK);
     }
 
-    @GetMapping("/location/{location}")
+    @GetMapping("/location")
     public ResponseEntity<List<Farm>> getByLocation(@RequestParam String location){
         List<Farm> farms = farmService.getByLocation(location);
         return new ResponseEntity<>(farms, HttpStatus.OK);
     }
 
-    @GetMapping("size_hectares/{sizeHectares}")
+    @GetMapping("size_hectares")
     public ResponseEntity<List<Farm>> getBySizeHectares(@RequestParam double sizeHectares){
         List<Farm> farms = farmService.getBySizeHectares(sizeHectares);
         return new ResponseEntity<>(farms, HttpStatus.OK);

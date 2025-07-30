@@ -39,13 +39,13 @@ public class CropController {
         return new ResponseEntity<>(crops, HttpStatus.OK);
     }
 
-    @GetMapping("/culture/{culture}")
+    @GetMapping("/culture")
     public ResponseEntity<List<Crop>> getByCultureIgnoreCase(@Valid @RequestParam String culture){
         List<Crop> crops = cropService.getByCultureIgnoreCase(culture);
         return new ResponseEntity<>(crops, HttpStatus.OK);
     }
 
-    @GetMapping("/planted_date/plantedDate")
+    @GetMapping("/planted_date")
     public ResponseEntity<List<Crop>> getByPlantedDate(@RequestParam LocalDate plantedDate){
         List<Crop> crops = cropService.getByPlantedDate(plantedDate);
         return new ResponseEntity<>(crops, HttpStatus.OK);

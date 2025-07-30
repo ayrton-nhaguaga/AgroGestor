@@ -44,19 +44,19 @@ public class InputApplicationController {
         return new ResponseEntity<>(inputApplications, HttpStatus.OK);
     }
 
-    @GetMapping("/product/{product}")
+    @GetMapping("/product")
     public ResponseEntity<List<InputApplication>> getByProductIgnoreCase(@Valid @RequestParam String product){
         List<InputApplication> inputApplications = inputApplicationService.getByProductIgnoreCase(product);
         return new ResponseEntity<>(inputApplications, HttpStatus.OK);
     }
 
-    @GetMapping("/application_date/applicationDate")
+    @GetMapping("/application_date")
     public ResponseEntity<List<InputApplication>> getByApplicationDate(@RequestParam LocalDate applicationDate){
         List<InputApplication> inputApplications = inputApplicationService.getByApplicationDate(applicationDate);
         return new ResponseEntity<>(inputApplications, HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping("/employee")
     public ResponseEntity<List<InputApplication>> getByEmployeeIgnoreCase(@RequestParam String employee){
         List<InputApplication> inputApplications = inputApplicationService.getByEmployeeIgnoreCase(employee);
         return new ResponseEntity<>(inputApplications, HttpStatus.OK);

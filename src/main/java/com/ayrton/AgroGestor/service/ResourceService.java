@@ -43,7 +43,6 @@ public class ResourceService {
         return resourceRepository.findByActive(active);
     }
 
-    // metodo para marcar uso de um recurso ex tractor
 
     public Optional<Resource> updateResource(String id, ResourceDTO dto){
         return resourceRepository.findById(id)

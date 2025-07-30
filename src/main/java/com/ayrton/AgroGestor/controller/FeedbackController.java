@@ -44,7 +44,7 @@ public class FeedbackController {
         return new ResponseEntity<>(feedbacks, HttpStatus.OK);
     }
 
-    @GetMapping("/rating/{rating}")
+    @GetMapping("/rating")
     public ResponseEntity<List<Feedback>> getByRating(@RequestBody int rating){
         List<Feedback> feedbacks = feedbackService.getByRating(rating);
         return new ResponseEntity<>(feedbacks, HttpStatus.OK);
