@@ -23,6 +23,8 @@ public class SaleService {
     private final PromotionRepository promotionRepository;
     private final PromotionService promotionService;
     private final ProductRepository productRepository;
+    private final EmailService emailService;
+
 
     public Sale createSale(SaleDTO dto) {
         if (dto.getAmount() <= 0) {
@@ -63,6 +65,8 @@ public class SaleService {
                 .saleDate(LocalDateTime.now())
                 .status(SaleStatus.CONCLUIDA)
                 .build();
+
+        emailService.sendTextEmail(sale.getBuyerName(), "Venda realizada", "Parabens, realizou uma compra de: "+sale.getProductId() + " Quantidade: "+sale.getAmount() + "ao preco total de: "+sale.getTotalPrice());
 
         return saleRepository.save(sale);
     }
