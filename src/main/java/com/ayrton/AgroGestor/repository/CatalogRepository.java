@@ -16,7 +16,7 @@ public interface CatalogRepository extends MongoRepository<Catalog, String> {
     @Override
     List<Catalog> findAll();
 
-    List<Catalog> findByNameIgnoreCase(String name);
+    List<Catalog> findByNameContainingIgnoreCase(String name);
 
     List<Catalog> findByPrice(double price);
 }

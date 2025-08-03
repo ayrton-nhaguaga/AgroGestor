@@ -17,7 +17,7 @@ public interface ProductRepository extends MongoRepository<Product, String> {
     @Override
     List<Product> findAll();
 
-    List<Product> findByNameIgnoreCase(String name);
+    List<Product> findByNameContainingIgnoreCase(String name);
 
     List<Product> findByPrice(double price);
 

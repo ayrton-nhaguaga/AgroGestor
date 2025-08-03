@@ -16,9 +16,9 @@ public interface FarmRepository extends MongoRepository<Farm, String> {
     @Override
     List<Farm> findAll();
 
-    List<Farm> findByNameIgnoreCase(String name);
+    List<Farm> findByNameContainingIgnoreCase(String name);
 
-    List<Farm> findByLocationIgnoreCase(String location);
+    List<Farm> findByLocationContainingIgnoreCase(String location);
 
     List<Farm> findBySizeHectares(double sizeHectares);
 

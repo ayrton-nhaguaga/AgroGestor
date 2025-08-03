@@ -33,7 +33,7 @@ public class CatalogService {
     }
 
     public List<Catalog> getByNameIgnoreCase(String name){
-        return catalogRepository.findByNameIgnoreCase(name);
+        return catalogRepository.findByNameContainingIgnoreCase(name);
     }
 
     public List<Catalog> getByPrice(double price){

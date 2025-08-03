@@ -16,9 +16,9 @@ public interface ResourceRepository extends MongoRepository<Resource, String> {
     @Override
     List<Resource> findAll();
 
-    List<Resource> findByNameIgnoreCase(String name);
+    List<Resource> findByNameContainingIgnoreCase(String name);
 
-    List<Resource> findByTypeIgnoreCase(String type);
+    List<Resource> findByTypeContainingIgnoreCase(String type);
 
     List<Resource> findByActive(boolean active);
 

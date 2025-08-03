@@ -40,7 +40,7 @@ public class InputApplicationService {
     }
 
     public List<InputApplication> getByProductIgnoreCase(String product){
-        return inputApplicationRepository.findByProductIgnoreCase(product);
+        return inputApplicationRepository.findByProductContainingIgnoreCase(product);
     }
 
     public List<InputApplication> getByApplicationDate(LocalDate applicationDate){
@@ -48,7 +48,7 @@ public class InputApplicationService {
     }
 
     public List<InputApplication> getByEmployeeIgnoreCase(String employee){
-        return inputApplicationRepository.findByEmployeeIgnoreCase(employee);
+        return inputApplicationRepository.findByEmployeeContainingIgnoreCase(employee);
     }
 
     public Optional<InputApplication> updateInputApplication(String id, InputApplicationDTO dto){

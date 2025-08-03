@@ -38,11 +38,11 @@ public class EmployeeService {
     }
 
     public List<Employee> getByNameIgnoreCase(String name){
-        return employeeRepository.findByNameIgnoreCase(name);
+        return employeeRepository.findByNameContainingIgnoreCase(name);
     }
 
     public List<Employee> getByEmailIgnoreCase(String email){
-        return employeeRepository.findByEmailIgnoreCase(email);
+        return employeeRepository.findByEmailContainingIgnoreCase(email);
     }
 
 

@@ -41,7 +41,7 @@ public class CropService {
     }
 
     public List<Crop> getByCultureIgnoreCase(String culture){
-        return cropRepository.findByCultureIgnoreCase(culture);
+        return cropRepository.findByCultureContainingIgnoreCase(culture);
     }
 
     public List<Crop> getByPlantedDate(LocalDate plantedDate){

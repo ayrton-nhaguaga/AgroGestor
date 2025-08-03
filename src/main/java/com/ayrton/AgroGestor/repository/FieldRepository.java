@@ -16,7 +16,7 @@ public interface FieldRepository extends MongoRepository<Field, String> {
     @Override
     List<Field> findAll();
 
-    List<Field> findByNameIgnoreCase(String name);
+    List<Field> findByNameContainingIgnoreCase(String name);
 
     List<Field> findByFarmId(String farmId);
 

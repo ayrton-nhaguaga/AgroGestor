@@ -35,7 +35,7 @@ public class ProductService {
     }
 
     public List<Product> getByNameIgnoreCase(String name){
-        return productRepository.findByNameIgnoreCase(name);
+        return productRepository.findByNameContainingIgnoreCase(name);
     }
 
     public List<Product> getByPrice(double price){

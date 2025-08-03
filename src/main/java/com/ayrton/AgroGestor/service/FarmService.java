@@ -33,11 +33,11 @@ public class FarmService {
     }
 
     public List<Farm> getByName(String name){
-        return farmRepository.findByNameIgnoreCase(name);
+        return farmRepository.findByNameContainingIgnoreCase(name);
     }
 
     public List<Farm> getByLocation(String location){
-        return farmRepository.findByLocationIgnoreCase(location);
+        return farmRepository.findByLocationContainingIgnoreCase(location);
     }
 
     public List<Farm> getBySizeHectares(double sizeHectares){

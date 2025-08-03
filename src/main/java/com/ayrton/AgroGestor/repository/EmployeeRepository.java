@@ -17,9 +17,9 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
     @Override
     List<Employee> findAll();
 
-    List<Employee> findByNameIgnoreCase(String name);
+    List<Employee> findByNameContainingIgnoreCase(String name);
 
-    List<Employee> findByEmailIgnoreCase(String email);
+    List<Employee> findByEmailContainingIgnoreCase(String email);
 
 
     List<Employee> findBySpeciality(EmployeeSpeciality speciality);

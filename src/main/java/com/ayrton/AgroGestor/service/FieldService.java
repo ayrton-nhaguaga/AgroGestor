@@ -33,7 +33,7 @@ public class FieldService {
     }
 
     public List<Field> getByName(String name){
-        return fieldRepository.findByNameIgnoreCase(name);
+        return fieldRepository.findByNameContainingIgnoreCase(name);
     }
 
     public List<Field> getByFarmId(String farmId){

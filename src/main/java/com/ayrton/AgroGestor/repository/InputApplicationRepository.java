@@ -18,9 +18,9 @@ public interface InputApplicationRepository extends MongoRepository<InputApplica
 
     List<InputApplication> findByCropId(String cropId);
 
-    List<InputApplication> findByProductIgnoreCase(String product);
+    List<InputApplication> findByProductContainingIgnoreCase(String product);
 
     List<InputApplication> findByApplicationDate(LocalDate applicationDate);
 
-    List<InputApplication> findByEmployeeIgnoreCase(String employee);
+    List<InputApplication> findByEmployeeContainingIgnoreCase(String employee);
 }

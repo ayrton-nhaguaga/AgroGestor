@@ -17,7 +17,7 @@ public interface PromotionRepository extends MongoRepository<Promotion, String> 
     @Override
     List<Promotion> findAll();
 
-    List<Promotion> findByTitleIgnoreCase(String title);
+    List<Promotion> findByTitleContainingIgnoreCase(String title);
 
     List<Promotion> findByDiscountPercent(double discountPercent);
 

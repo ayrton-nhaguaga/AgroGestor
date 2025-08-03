@@ -19,7 +19,7 @@ public interface CropRepository extends MongoRepository<Crop, String> {
 
     List<Crop> findByFieldId(String fieldId);
 
-    List<Crop> findByCultureIgnoreCase(String culture);
+    List<Crop> findByCultureContainingIgnoreCase(String culture);
 
     List<Crop> findByPlantedDate(LocalDate plantedDate);
 

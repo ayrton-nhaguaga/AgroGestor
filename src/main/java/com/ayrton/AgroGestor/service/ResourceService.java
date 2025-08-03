@@ -32,11 +32,11 @@ public class ResourceService {
     }
 
     public List<Resource> getByNameIgnoreCase(String name){
-        return resourceRepository.findByNameIgnoreCase(name);
+        return resourceRepository.findByNameContainingIgnoreCase(name);
     }
 
     public List<Resource> getByTypeIgnoreCase(String type){
-        return resourceRepository.findByTypeIgnoreCase(type);
+        return resourceRepository.findByTypeContainingIgnoreCase(type);
     }
 
     public List<Resource> getByActive(boolean active){

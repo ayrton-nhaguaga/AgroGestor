@@ -37,7 +37,7 @@ public class PromotionService {
     }
 
     public List<Promotion> getByTitleIgnoreCase(String title){
-        return promotionRepository.findByTitleIgnoreCase(title);
+        return promotionRepository.findByTitleContainingIgnoreCase(title);
     }
 
     public List<Promotion> getByDiscountPercent(double discountPercent){
