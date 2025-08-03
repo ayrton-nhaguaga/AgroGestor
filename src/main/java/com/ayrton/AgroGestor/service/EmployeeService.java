@@ -24,6 +24,8 @@ public class EmployeeService {
         employee.setPhone(dto.getPhone());
         employee.setSchedules(dto.getSchedules());
         employee.setSpeciality(dto.getSpeciality());
+        employee.setAbsences(0);
+        employee.setBaseSalary(dto.getBaseSalary());
         return employeeRepository.save(employee);
     }
 
@@ -47,6 +49,17 @@ public class EmployeeService {
     public List<Employee> getBySpeciality(EmployeeSpeciality speciality){
         return employeeRepository.findBySpeciality(speciality);
     }
+
+    public Employee markAbsences(String id) {
+        return employeeRepository.findById(id)
+                .map(employee -> {
+                    employee.setAbsences(employee.getAbsences() + 1);
+                    employee.setFinalSalary(employee.calculateFinalSalary());
+                    return employeeRepository.save(employee);
+                })
+                .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
+    }
+
 
 
     public Optional<Employee> updateEmployee(String id, EmployeeDTO dto){

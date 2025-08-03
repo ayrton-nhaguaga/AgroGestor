@@ -66,6 +66,12 @@ public class EmployeeController {
         return ResponseEntity.ok(employee);
     }
 
+    @PutMapping("/{id}/mark-absence")
+    public ResponseEntity<Employee> markAbsence(@PathVariable String id) {
+        Employee updatedEmployee = employeeService.markAbsences(id);
+        return ResponseEntity.ok(updatedEmployee);
+    }
+
     @DeleteMapping("/id/{id}")
     public ResponseEntity<Void> deleteEmployee(@PathVariable String id){
         if (employeeService.deleteEmployee(id)){

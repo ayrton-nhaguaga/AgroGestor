@@ -24,4 +24,15 @@ public class Employee {
 
     private List<EmployeeSchedule> schedules = new ArrayList<>();
     private List<EmployeeSpeciality> speciality = new ArrayList<>();
+
+    private int absences;
+
+    private double baseSalary;
+    private double finalSalary;
+
+    public double calculateFinalSalary(){
+        double dailyRate = baseSalary / 22.0;
+
+        return baseSalary - (absences * dailyRate);
+    }
 }
